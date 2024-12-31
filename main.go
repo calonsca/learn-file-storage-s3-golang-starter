@@ -95,7 +95,7 @@ func main() {
 		s3CfDistribution: s3CfDistribution,
 		port:             port,
 	}
-
+	// test
 	err = cfg.ensureAssetsDir()
 	if err != nil {
 		log.Fatalf("Couldn't create assets directory: %v", err)
