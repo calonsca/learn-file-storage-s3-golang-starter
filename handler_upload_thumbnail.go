@@ -58,12 +58,12 @@ func (cfg *apiConfig) handlerUploadThumbnail(w http.ResponseWriter, r *http.Requ
 		return
 	}
 
-	if (allowedMediaType != "image/jpeg") && (allowedMediaType != "image/png") {
-		respondWithError(w, http.StatusBadRequest, "Only jpeg or png allowed", nil)
+	if allowedMediaType != "image/jpeg" && allowedMediaType != "image/png" {
+		respondWithError(w, http.StatusBadRequest, "Error parsing the Media Type", nil)
 		return
 	}
 
-	assetPath := getAssetPath(videoID, mediaType)
+	assetPath := getAssetPath(mediaType)
 	assetDiskPath := cfg.getAssetDiskPath(assetPath)
 
 	dst, err := os.Create(assetDiskPath)
